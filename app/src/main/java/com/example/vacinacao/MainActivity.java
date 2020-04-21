@@ -15,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
      * Evento do botão login
      */
     public void login(View v){
-        //Chamar a outra tela
+        //Chamaar a outra tela
     }
     /*
      * Evento do botão cadastrar
