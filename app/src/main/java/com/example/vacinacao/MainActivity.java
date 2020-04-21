@@ -10,7 +10,6 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Variable declaration
     EditText txtEmail;
 
     @Override
@@ -25,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     /*
     * Evento do botão login
     */
-    public void login(View v){
+    public void entrar(View v){
         //Chamar a outra tela
     }
     /*
