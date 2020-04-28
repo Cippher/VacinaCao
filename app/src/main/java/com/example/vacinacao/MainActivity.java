@@ -9,8 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
+    Button btEntrar, btCadastrar;
 
-    EditText txtEmail;
+    EditText txtEmail, txt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,13 +20,14 @@ public class MainActivity extends AppCompatActivity {
 
         txtEmail = (EditText) findViewById(R.id.txtEmail);
 
+
     }
 
     /*
     * Evento do botão login
     */
     public void entrar(View v){
-        //Chamaar a outra tela
+        //Chamar a outra tela
     }
     /*
     * Evento do botão cadastrar
@@ -35,4 +37,5 @@ public class MainActivity extends AppCompatActivity {
         //Chama a tela de cadastro
         startActivity(intent);
     }
+
 }

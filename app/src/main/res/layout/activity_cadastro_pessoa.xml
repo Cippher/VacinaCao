@@ -144,18 +144,17 @@
         app:layout_constraintTop_toBottomOf="@+id/txtNome" />
 
     <Button
-        android:id="@+id/botConfirmar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/btConfirmar"
+        android:layout_width="128dp"
+        android:layout_height="54dp"
         android:layout_marginBottom="68dp"
         android:onClick="confirmar"
         android:text="Confirmar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtCidade"
-        app:layout_constraintVertical_bias="0.416" />
+        app:layout_constraintVertical_bias="0.722" />
 
     <View
         android:id="@+id/divider"
@@ -263,4 +262,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNumero" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

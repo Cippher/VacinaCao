@@ -17,6 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".CadastroPessoaActivity" />
+        <activity android:name=".CadastroCaoActivity" />
     </application>
 
 </manifest>
