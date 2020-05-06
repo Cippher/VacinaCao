@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.Date;
+
 public class CadastroPessoaDB {
     //TODO-Vinícius: 27/04/2020: Banco de dados do cadastro de pessoa
     //TODO-Vinícius: 27/04/2020: Criar classe adapter (precisa ?!?!?! ver melhor)
@@ -16,11 +18,23 @@ public class CadastroPessoaDB {
     private static final String COL_ID = "ID";
     private static final String COL_NOME = "NOME";
     private static final String COL_EMAIL = "EMAIL";
+    private static final String COL_SEXO = "SEXO";
+    private static final String COL_DATA = "DATA";
+    private static final String COL_SENHA = "SENHA";
+    private static final String COL_RUA = "RUA";
+    private static final String COL_NUMERO = "NUMERO";
+    private static final String COL_CIDADE = "CIDADE";
 
     private static final String SQL_TAB_PESSOAS = "create table " + TAB_PESSOAS +
             "(" + COL_ID + " integer primary key autoincrement," +
             COL_NOME + " text not null," +
-            COL_EMAIL + " text not null)";
+            COL_EMAIL + " text not null," +
+            COL_SEXO + " text not null," +
+            COL_DATA + " text not null," +
+            COL_SENHA + " text not null," +
+            COL_RUA + " text not null," +
+            COL_NUMERO + " text not null," +
+            COL_CIDADE + " text not null)";
 
     private cadastroDBHelper dbHelper;
     private SQLiteDatabase db;
@@ -46,7 +60,12 @@ public class CadastroPessoaDB {
         ContentValues values = new ContentValues();
         values.put(COL_NOME, c.getNome());
         values.put(COL_EMAIL, c.getEmail());
-        //...
+        values.put(COL_SEXO, c.getSexo());
+        values.put(COL_DATA, c.getDataNascimento().toString());
+        values.put(COL_SENHA, c.getSenha());
+        values.put(COL_RUA, c.getRua());
+        values.put(COL_NUMERO, c.getNumero());
+        values.put(COL_CIDADE, c.getCidade());
         db.insert(TAB_PESSOAS, null, values);
     }
 
