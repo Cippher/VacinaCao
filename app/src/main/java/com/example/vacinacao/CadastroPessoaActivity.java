@@ -31,7 +31,7 @@ public class CadastroPessoaActivity extends Activity implements AdapterView.OnIt
     //CadastroPessoaAdapter adapter;
     CadastroPessoaDB      cpdb;
 
-    private static final String[] strSexo = new String[]{"M", "F"};
+    //private static final String[] strSexo = new String[]{"M", "F"};
 
 
     @Override
@@ -54,12 +54,12 @@ public class CadastroPessoaActivity extends Activity implements AdapterView.OnIt
         txtNumero =                    (EditText) findViewById(R.id.txtNumero);
         txtCidade =                    (EditText) findViewById(R.id.txtCidade);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(CadastroPessoaActivity.this,
-                android.R.layout.simple_spinner_item,strSexo);
+        //ArrayAdapter<String> adapter = new ArrayAdapter<String>(CadastroPessoaActivity.this,
+               // android.R.layout.simple_spinner_item,stnSexo);
 
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spnSexo.setAdapter(adapter);
-        spnSexo.setOnItemSelectedListener(this);
+        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        //spnSexo.setAdapter(adapter);
+        //spnSexo.setOnItemSelectedListener(this);
 
         //TODO-Vinícius: 27/04/2020: Precisa validar a senha com a confirmação da senha
         //Se txtNovaSenhaCadastro == txtNovaSenhaCadastroConfirma
@@ -74,16 +74,16 @@ public class CadastroPessoaActivity extends Activity implements AdapterView.OnIt
         //TODO-Vinícius: 27/04/2020: Se todos os dados são válidos
         //TODO-Vinícius: 27/04/2020: Criar classe CadastroPessoa
         // Adiciona um novo cadastros de pessoa ao banco de dados
-        CadastroPessoa cadastroPessoa = new CadastroPessoa();
-        cadastroPessoa.setNome(txtNome.getText().toString());
-        cadastroPessoa.setEmail(txtEmailCadastro.getText().toString());
+        //CadastroPessoa cadastroPessoa = new CadastroPessoa();
+       // cadastroPessoa.setNome(txtNome.getText().toString());
+      //  cadastroPessoa.setEmail(txtEmailCadastro.getText().toString());
         //cadastroPessoa.setSexo(...);
         //cadastroPessoa.setDataNascimento(txtDataNascimentoPessoa.getText().toString());
         //cadastroPessoa.setSenha(...);
         //cadastroPessoa.setRua(txtRua.getText().toString());
         //cadastroPessoa.setNumero(...);
         //cadastroPessoa.setCidade(txtRua.getText().toString());
-        cpdb.adicionarCadastroPessoa(cadastroPessoa);
+       // cpdb.adicionarCadastroPessoa(cadastroPessoa);
 
         Intent intent = new Intent(this, CadastroCaoActivity.class);
         //Chama a tela de cadastro pet
