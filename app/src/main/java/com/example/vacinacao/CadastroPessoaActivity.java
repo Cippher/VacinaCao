@@ -56,7 +56,7 @@ public class CadastroPessoaActivity extends Activity implements AdapterView.OnIt
         /*
          * Variable initialize section
          */
-        /*txtNome =                      (EditText) findViewById(R.id.txtNome);
+        txtNome =                      (EditText) findViewById(R.id.txtNome);
         txtEmailCadastro =             (EditText) findViewById(R.id.txtEmailCadastro);
         spnSexo =                      (Spinner) findViewById(R.id.spnSexo);
         txtDataNascimentoPessoa =      (EditText) findViewById(R.id.txtDataNascimentoPessoa);
@@ -64,21 +64,15 @@ public class CadastroPessoaActivity extends Activity implements AdapterView.OnIt
         txtNovaSenhaCadastroConfirma = (EditText) findViewById(R.id.txtNovaSenhaCadastroConfirma);
         txtRua =                       (EditText) findViewById(R.id.txtRua);
         txtNumero =                    (EditText) findViewById(R.id.txtNumero);
-        txtCidade =                    (EditText) findViewById(R.id.txtCidade);*/
+        txtCidade =                    (EditText) findViewById(R.id.txtCidade);
+        /*
+         * Spinner
+         */
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(CadastroPessoaActivity.this,
-                android.R.layout.simple_spinner_item,strSexo);
+                                           android.R.layout.simple_spinner_item,strSexo);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spnSexo.setAdapter(adapter);
         spnSexo.setOnItemSelectedListener(this);
-        // TODO-Vinícius: 04/05/2020: Precisa validar a senha antes de testar?
-        // Se as senhas informadas são iguais
-        if (txtNovaSenhaCadastro.getText().toString() !=
-            txtNovaSenhaCadastroConfirma.getText().toString()){
-            // Message alert
-            showMessage("Erro!", "As senhas não correspondem! Tente novamente!");
-            // Clear text on activity
-            clearText();
-        }
     }
     /*
      * Message alert
@@ -93,7 +87,7 @@ public class CadastroPessoaActivity extends Activity implements AdapterView.OnIt
     /*
      * Password validation
      */
-    private boolean isPasswordValid (String password) {
+    private boolean isPasswordValid(String password) {
         Pattern pattern;
         Matcher matcher;
 
@@ -115,7 +109,16 @@ public class CadastroPessoaActivity extends Activity implements AdapterView.OnIt
      * Push button "confirmar"
      */
     public void confirmar(View v){
-        //TODO-Vinícius: 04/05/2020: Talvez de problema ao adicionar no banco as colunas do
+        // TODO-Vinícius: 04/05/2020: Precisa validar a senha antes de testar? (isPasswordValid)
+        // Se as senhas informadas são iguais (esse teste não funciona, sempre entra)
+        if (txtNovaSenhaCadastro.getText().toString() !=
+                txtNovaSenhaCadastroConfirma.getText().toString()){
+            // Message alert
+            showMessage("Erro!", "As senhas não correspondem! Tente novamente!");
+            // Clear text on activity
+            clearText();
+        }
+        //TODO-Vinícius: 04/05/2020: Talvez de problema ao adicionar no banco, as colunas do
         //TODO-Vinícius: 04/05/2020: ... mesmo estão definidas como string, ver se da erro e tratar
         CadastroPessoa cadastroPessoa = new CadastroPessoa();
         // Nome da pessoa
@@ -141,7 +144,7 @@ public class CadastroPessoaActivity extends Activity implements AdapterView.OnIt
         // Cidade
         cadastroPessoa.setCidade(txtCidade.getText().toString());
         // Inclui um novo cadastro no banco
-        cpdb.adicionarCadastroPessoa(cadastroPessoa);
+        //cpdb.adicionarCadastroPessoa(cadastroPessoa);
         // Chama a tela de cadastro de cachorro
         Intent intent = new Intent(this, CadastroCaoActivity.class);
         startActivity(intent);
