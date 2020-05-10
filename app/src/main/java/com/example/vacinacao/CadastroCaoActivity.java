@@ -1,6 +1,7 @@
 package com.example.vacinacao;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,6 +18,11 @@ public class CadastroCaoActivity  extends Activity implements AdapterView.OnItem
         setContentView(R.layout.activity_cadastro_pet);
         //coment new for commit
 
+    }
+
+    public void confirmar(View v){
+        Intent intent = new Intent(this, MenuUsuarioPetActivity.class);
+        startActivity(intent);
     }
 
     @Override

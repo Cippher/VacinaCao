@@ -18,6 +18,8 @@
         </activity>
         <activity android:name=".CadastroPessoaActivity" />
         <activity android:name=".CadastroCaoActivity" />
+        <activity android:name=".MenuUsuarioPetActivity" />
+        <activity android:name=".PerfilUsuarioActivity" />
     </application>
 
 </manifest>

@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class CadastroPessoa {
     /*
-     * Variable declaration
+     * Declaração das variáveis
      */
     private String nome;
     private String email;
@@ -14,24 +14,6 @@ public class CadastroPessoa {
     private String rua;
     private int numero;
     private String cidade;
-    /*
-     * Construtor using fields
-     */
-    public CadastroPessoa(String nome, String email, String sexo, Date dataNascimento, String senha, String rua, int numero, String cidade) {
-        this.nome = nome;
-        this.email = email;
-        this.sexo = sexo;
-        this.dataNascimento = dataNascimento;
-        this.senha = senha;
-        this.rua = rua;
-        this.numero = numero;
-        this.cidade = cidade;
-    }
-    /*
-     * Construtor without fields
-     */
-    public CadastroPessoa(){
-    }
     /*
      * Getters
      */
@@ -54,4 +36,17 @@ public class CadastroPessoa {
     public void setRua(String rua) { this.rua = rua; }
     public void setNumero(int numero) { this.numero = numero; }
     public void setCidade(String cidade) { this.cidade = cidade; }
+    /*
+     * Imprime os dados da pessoa no terminal para teste
+     */
+    public void imprimePessoa(CadastroPessoa p){
+        System.out.println("Nome: " + p.getNome() +
+                         "E-mail: " + p.getEmail() +
+                           "Sexo: " + p.getSexo() +
+             "Data de nascimento: " + p.getDataNascimento() +
+                          "Senha: " + p.getSenha() +
+                            "Rua: " + p.getRua() +
+                         "Número: " + p.getNumero() +
+                         "Cidade: " + p.getCidade());
+    }
 }

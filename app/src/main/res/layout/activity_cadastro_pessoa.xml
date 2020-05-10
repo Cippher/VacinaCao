@@ -21,10 +21,10 @@
             <Button
                 android:id="@+id/button5"
                 android:layout_width="187dp"
-                android:layout_height="41dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="8dp"
                 android:onClick="confirmar"
-                android:text="Confirmar Cadastro"
+                android:text="Confirmar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.46"
@@ -35,13 +35,13 @@
             <EditText
                 android:id="@+id/txtCidade"
                 android:layout_width="190dp"
-                android:layout_height="37dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.214"
+                app:layout_constraintHorizontal_bias="0.213"
                 app:layout_constraintStart_toEndOf="@+id/textView38"
                 app:layout_constraintTop_toBottomOf="@+id/txtNumero" />
 
@@ -66,47 +66,35 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
             <EditText
-                android:id="@+id/txtNumero"
-                android:layout_width="150dp"
-                android:layout_height="40dp"
-                android:layout_marginStart="20dp"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Numero:"
-                android:textSize="14sp"
-                app:layout_constraintStart_toEndOf="@+id/textView37"
-                app:layout_constraintTop_toBottomOf="@+id/txtRua" />
-
-            <EditText
                 android:id="@+id/txtRua"
                 android:layout_width="282dp"
-                android:layout_height="38dp"
-                android:layout_marginTop="16dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="20dp"
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.551"
+                app:layout_constraintHorizontal_bias="0.48"
                 app:layout_constraintStart_toEndOf="@+id/textView36"
                 app:layout_constraintTop_toBottomOf="@+id/textView34" />
 
             <EditText
                 android:id="@+id/txtEmailCadastro"
-                android:layout_width="292dp"
-                android:layout_height="33dp"
+                android:layout_width="293dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="12dp"
                 android:ems="10"
                 android:inputType="textEmailAddress"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.475"
                 app:layout_constraintStart_toEndOf="@+id/textView23"
-                app:layout_constraintTop_toBottomOf="@+id/txtNome"
-                tools:text="E-mail" />
+                app:layout_constraintTop_toBottomOf="@+id/txtNome" />
 
             <EditText
                 android:id="@+id/txtNovaSenhaCadastroConfirma"
                 android:layout_width="215dp"
-                android:layout_height="38dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="textPassword"
@@ -117,8 +105,8 @@
 
             <EditText
                 android:id="@+id/txtNovaSenhaCadastro"
-                android:layout_width="212dp"
-                android:layout_height="38dp"
+                android:layout_width="215dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
                 android:inputType="textPassword"
@@ -129,26 +117,26 @@
 
             <EditText
                 android:id="@+id/txtDataNascimentoPessoa"
-                android:layout_width="106dp"
-                android:layout_height="38dp"
+                android:layout_width="120dp"
+                android:layout_height="45dp"
                 android:layout_marginStart="2dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="12dp"
                 android:ems="10"
                 android:inputType="date"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.017"
+                app:layout_constraintHorizontal_bias="0.063"
                 app:layout_constraintStart_toEndOf="@+id/textView26"
                 app:layout_constraintTop_toBottomOf="@+id/spnSexo" />
 
             <Spinner
                 android:id="@+id/spnSexo"
                 android:layout_width="83dp"
-                android:layout_height="38dp"
+                android:layout_height="45dp"
                 android:layout_marginEnd="172dp"
                 android:layout_marginStart="2dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="12dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.054"
+                app:layout_constraintHorizontal_bias="0.194"
                 app:layout_constraintStart_toEndOf="@+id/textView24"
                 app:layout_constraintTop_toBottomOf="@+id/txtEmailCadastro" />
 
@@ -221,7 +209,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="48dp"
-                android:layout_marginTop="34dp"
+                android:layout_marginTop="44dp"
                 android:text="Sexo:"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView23" />
@@ -239,11 +227,10 @@
             <EditText
                 android:id="@+id/txtNome"
                 android:layout_width="293dp"
-                android:layout_height="40dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="16dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Nome"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.473"
@@ -289,6 +276,18 @@
                 android:background="?android:attr/listDivider"
                 app:layout_constraintTop_toBottomOf="@+id/txtDataNascimentoPessoa"
                 tools:layout_editor_absoluteX="8dp" />
+
+            <EditText
+                android:id="@+id/txtNumero"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.173"
+                app:layout_constraintStart_toEndOf="@+id/textView37"
+                app:layout_constraintTop_toBottomOf="@+id/txtRua" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
