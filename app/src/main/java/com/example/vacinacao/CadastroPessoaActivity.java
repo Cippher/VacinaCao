@@ -68,37 +68,6 @@ public class CadastroPessoaActivity extends Activity implements AdapterView.OnIt
         //cpdb = new CadastroPessoaDB(getBaseContext());
     }
     /*
-     * Mensagem de alerta
-     */
-    public void mostraMensagem(String title, String message) {
-        AlertDialog.Builder builder=new AlertDialog.Builder(this);
-        builder.setCancelable(true);
-        builder.setTitle(title);
-        builder.setMessage(message);
-        builder.show();
-    }
-    /*
-     * Validação da senha (Não usar por hora)
-     */
-    private boolean isPasswordValid(String password) {
-        Pattern pattern;
-        Matcher matcher;
-
-        final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{4,}$";
-
-        pattern = Pattern.compile(PASSWORD_PATTERN);
-        matcher = pattern.matcher(password);
-
-        return matcher.matches();
-    }
-    /*
-     * Limpa os campos de senhas
-     */
-    public EditText limpaTextoString(EditText edTxt){
-        edTxt.setText("");
-        return edTxt;
-    }
-    /*
      * Evento de clique de botão "confirmar"
      */
     public void confirmar(View v){
@@ -109,7 +78,7 @@ public class CadastroPessoaActivity extends Activity implements AdapterView.OnIt
          */
         if (!strNovaSenhaCadastro.equals(strNovaSenhaCadastroConfirma)){
             // Chama mensagem de alerta
-            mostraMensagem("Erro!", "As senhas não correspondem! Tente novamente!");
+            exibeMensagem("Erro!", "As senhas não correspondem! Tente novamente!");
             // Limpa os campos de senha
             txtNovaSenhaCadastro = limpaTextoString(txtNovaSenhaCadastro);
             txtNovaSenhaCadastroConfirma = limpaTextoString(txtNovaSenhaCadastroConfirma);
@@ -158,5 +127,36 @@ public class CadastroPessoaActivity extends Activity implements AdapterView.OnIt
      */
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
+    }
+    /*
+     * Exibe uma mensagem com título e texto
+     */
+    public void exibeMensagem(String title, String message) {
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.show();
+    }
+    /*
+     * Validação da senha (Não usar por hora)
+     */
+    private boolean isPasswordValid(String password) {
+        Pattern pattern;
+        Matcher matcher;
+
+        final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{4,}$";
+
+        pattern = Pattern.compile(PASSWORD_PATTERN);
+        matcher = pattern.matcher(password);
+
+        return matcher.matches();
+    }
+    /*
+     * Limpa os campos de senhas
+     */
+    public EditText limpaTextoString(EditText edTxt){
+        edTxt.setText("");
+        return edTxt;
     }
 }

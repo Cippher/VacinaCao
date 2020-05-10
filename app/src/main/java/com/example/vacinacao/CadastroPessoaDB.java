@@ -26,13 +26,13 @@ public class CadastroPessoaDB{
     private static final String COL_NUMERO = "NUMERO";
     private static final String COL_CIDADE = "CIDADE";
     private static final String SQL_TAB_PESSOAS = "create table " + TAB_PESSOAS +
-            "(" + COL_ID + " integer primary key autoincrement," +
-                  COL_NOME + " text not null," +
-                  COL_EMAIL + " text not null," +
-                  COL_SEXO + " text not null," +
-                  COL_DATA + " text not null," +
-                  COL_SENHA + " text not null," +
-                  COL_RUA + " text not null," +
+            "(" + COL_ID     + " integer primary key autoincrement," +
+                  COL_NOME   + " text not null," +
+                  COL_EMAIL  + " text not null," +
+                  COL_SEXO   + " text not null," +
+                  COL_DATA   + " text not null," +
+                  COL_SENHA  + " text not null," +
+                  COL_RUA    + " text not null," +
                   COL_NUMERO + " text not null," +
                   COL_CIDADE + " text not null)";
     private cadastroDBHelper dbHelper;
@@ -80,7 +80,7 @@ public class CadastroPessoaDB{
         // Fecha o banco de dados
         fechar();
         // Se houve erro na inclusão do cadastro no banco de dados
-        if (resultado ==-1){
+        if (resultado == -1){
             System.out.println("Erro ao incluir registro!");
         }else {
             System.out.println("Registro inserido com sucesso!");

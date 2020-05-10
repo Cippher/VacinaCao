@@ -46,11 +46,11 @@ public class MainActivity extends AppCompatActivity {
                 //Chama a tela de menu de usuário e pet
                 startActivity(intent);
             }else{
-                mostraMensagem("Erro!", "As senhas não correspondem! Tente novamente.");
+                exibeMensagem("Erro!", "As senhas não correspondem! Tente novamente.");
                 txtSenhaLogin = limpaTextoEditText(txtSenhaLogin);
             }
         }else{
-            mostraMensagem("Erro!", "Os e-mails não correspondem! Tente novamente.");
+            exibeMensagem("Erro!", "Os e-mails não correspondem! Tente novamente.");
             txtEmailLogin = limpaTextoEditText(txtEmailLogin);
         }
     }
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public void cadastrar(View v){
         Intent intent = new Intent(this, CadastroPessoaActivity.class);
-        //Chama a tela de cadastro
+        //Chama a tela de cadastro de pessoa
         startActivity(intent);
     }
     /*
@@ -70,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
         return edTxt;
     }
     /*
-     * Mensagem de alerta
+     * Exibe uma mensagem com título e texto
      */
-    public void mostraMensagem(String title, String message) {
+    public void exibeMensagem(String title, String message) {
         AlertDialog.Builder builder=new AlertDialog.Builder(this);
         builder.setCancelable(true);
         builder.setTitle(title);
