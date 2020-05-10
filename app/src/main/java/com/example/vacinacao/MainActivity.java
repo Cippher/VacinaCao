@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class MainActivity extends AppCompatActivity {
     /*
      * Declarações das variáveis
@@ -38,19 +41,25 @@ public class MainActivity extends AppCompatActivity {
         //strEmailBanco =
         //strSenhaBanco =
         //TODO-Vinícius: 27/04/2020: Buscar e-mail e senha no banco
-        // Se o e-mail está gravado no banco
-        if (strEmailLogin.equals(strEmailBanco)){
-            // Se a senha está cadastrada no banco
-            if (strSenhaLogin.equals(strSenhaBanco)){
-                Intent intent = new Intent(this, MenuUsuarioPetActivity.class);
-                //Chama a tela de menu de usuário e pet
-                startActivity(intent);
+        // Se o e-mail digitado é válido
+        if (oEmailEValido(strEmailLogin)){
+            // Se o e-mail está gravado no banco
+            if (strEmailLogin.equals(strEmailBanco)){
+                // Se a senha está cadastrada no banco
+                if (strSenhaLogin.equals(strSenhaBanco)){
+                    Intent intent = new Intent(this, MenuUsuarioPetActivity.class);
+                    //Chama a tela de menu de usuário e pet
+                    startActivity(intent);
+                }else{
+                    exibeMensagem("Erro!", "As senhas não correspondem! Tente novamente.");
+                    txtSenhaLogin = limpaTextoEditText(txtSenhaLogin);
+                }
             }else{
-                exibeMensagem("Erro!", "As senhas não correspondem! Tente novamente.");
-                txtSenhaLogin = limpaTextoEditText(txtSenhaLogin);
+                exibeMensagem("Erro!", "E-mails não cadastrado! Tente novamente.");
+                txtEmailLogin = limpaTextoEditText(txtEmailLogin);
             }
         }else{
-            exibeMensagem("Erro!", "Os e-mails não correspondem! Tente novamente.");
+            exibeMensagem("Erro!", "E-mail inválido! Tente novamente.");
             txtEmailLogin = limpaTextoEditText(txtEmailLogin);
         }
     }
@@ -78,5 +87,19 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitle(title);
         builder.setMessage(message);
         builder.show();
+    }
+    /*
+     * Valida o e-mail
+     */
+    private boolean oEmailEValido(String email) {
+        Pattern pattern;
+        Matcher matcher;
+
+        final String PASSWORD_PATTERN = "^(.+)@(.+)$";
+
+        pattern = Pattern.compile(PASSWORD_PATTERN);
+        matcher = pattern.matcher(email);
+
+        return matcher.matches();
     }
 }

@@ -109,10 +109,13 @@ public class CadastroPessoaActivity extends Activity implements AdapterView.OnIt
         // Cidade
         cadastroPessoa.setCidade(txtCidade.getText().toString());
         // Inclui um novo cadastro no banco
-        cpdb.adicionarCadastroPessoa(cadastroPessoa);
+        //cpdb.adicionarCadastroPessoa(cadastroPessoa);
         // Chama a tela de cadastro de cachorro
-        Intent intent = new Intent(this, MenuUsuarioPetActivity.class);
-        startActivity(intent);
+        //Intent intent = new Intent(this, MenuUsuarioPetActivity.class);
+        //startActivity(intent);
+        // TODO-Vinícius: 10/05/2020: Precisa testar se todas as informações foram inseridas antes
+        // ...de chamar a inclusão no banco e a outra tela
+        System.out.println(oEmailEValido(txtEmailCadastro.getText().toString()));
     }
     /*
      * Spinner - Quando um item é selecionado
@@ -149,6 +152,20 @@ public class CadastroPessoaActivity extends Activity implements AdapterView.OnIt
 
         pattern = Pattern.compile(PASSWORD_PATTERN);
         matcher = pattern.matcher(password);
+
+        return matcher.matches();
+    }
+    /*
+     * Valida o e-mail
+     */
+    private boolean oEmailEValido(String email) {
+        Pattern pattern;
+        Matcher matcher;
+
+        final String PASSWORD_PATTERN = "^(.+)@(.+)$";
+
+        pattern = Pattern.compile(PASSWORD_PATTERN);
+        matcher = pattern.matcher(email);
 
         return matcher.matches();
     }
