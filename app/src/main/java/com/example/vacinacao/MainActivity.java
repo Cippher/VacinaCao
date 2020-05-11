@@ -3,6 +3,7 @@ package com.example.vacinacao;
 import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     EditText txtSenhaLogin;
     CadastroPessoaDB cpdb;
 
-    private String strEmailLogin, strSenhaLogin, strEmailBanco, strSenhaBanco;
+    private String strEmailLogin, strSenhaLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity {
         /*
          * Inicialização das variáveis
          */
+        txtEmailLogin = limpaTextoEditText((EditText) findViewById(R.id.txtEmailLogin));
+        txtSenhaLogin = limpaTextoEditText((EditText) findViewById(R.id.txtSenhaLogin));
         txtEmailLogin = (EditText) findViewById(R.id.txtEmailLogin);
         txtSenhaLogin = (EditText) findViewById(R.id.txtSenhaLogin);
     }
@@ -38,15 +41,16 @@ public class MainActivity extends AppCompatActivity {
         strSenhaLogin = txtSenhaLogin.getText().toString();
 
         cpdb = new CadastroPessoaDB(getBaseContext());
-        //strEmailBanco =
-        //strSenhaBanco =
-        //TODO-Vinícius: 27/04/2020: Buscar e-mail e senha no banco
+
+        CadastroPessoa pessoa = cpdb.carregaCadastroPessoa();
+        //System.out.println(pessoa.getRua() + pessoa.getNumero() + pessoa.getCidade() + pessoa.getEmail() + pessoa.getSenha());
+
         // Se o e-mail digitado é válido
         if (oEmailEValido(strEmailLogin)){
             // Se o e-mail está gravado no banco
-            if (strEmailLogin.equals(strEmailBanco)){
+            if (strEmailLogin.equals(pessoa.getEmail())){
                 // Se a senha está cadastrada no banco
-                if (strSenhaLogin.equals(strSenhaBanco)){
+                if (strSenhaLogin.equals(pessoa.getSenha())){
                     Intent intent = new Intent(this, MenuUsuarioPetActivity.class);
                     //Chama a tela de menu de usuário e pet
                     startActivity(intent);
@@ -57,10 +61,12 @@ public class MainActivity extends AppCompatActivity {
             }else{
                 exibeMensagem("Erro!", "E-mails não cadastrado! Tente novamente.");
                 txtEmailLogin = limpaTextoEditText(txtEmailLogin);
+                txtSenhaLogin = limpaTextoEditText(txtSenhaLogin);
             }
         }else{
             exibeMensagem("Erro!", "E-mail inválido! Tente novamente.");
             txtEmailLogin = limpaTextoEditText(txtEmailLogin);
+            txtSenhaLogin = limpaTextoEditText(txtSenhaLogin);
         }
     }
     /*
@@ -95,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
         Pattern pattern;
         Matcher matcher;
 
+        // Falta validar o "ponto"
         final String PASSWORD_PATTERN = "^(.+)@(.+)$";
 
         pattern = Pattern.compile(PASSWORD_PATTERN);

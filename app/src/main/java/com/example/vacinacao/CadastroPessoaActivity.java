@@ -65,7 +65,7 @@ public class CadastroPessoaActivity extends Activity implements AdapterView.OnIt
         spnSexo.setAdapter(adapter);
         spnSexo.setOnItemSelectedListener(this);
 
-        //cpdb = new CadastroPessoaDB(getBaseContext());
+        cpdb = new CadastroPessoaDB(getBaseContext());
     }
     /*
      * Evento de clique de botão "confirmar"
@@ -83,8 +83,6 @@ public class CadastroPessoaActivity extends Activity implements AdapterView.OnIt
             txtNovaSenhaCadastro = limpaTextoString(txtNovaSenhaCadastro);
             txtNovaSenhaCadastroConfirma = limpaTextoString(txtNovaSenhaCadastroConfirma);
         }
-        //TODO-Vinícius: 04/05/2020: Talvez de problema ao adicionar no banco, as colunas do
-        //TODO-Vinícius: 04/05/2020: ... mesmo estão definidas como string, ver se da erro e tratar
         CadastroPessoa cadastroPessoa = new CadastroPessoa();
         // Nome da pessoa
         cadastroPessoa.setNome(txtNome.getText().toString());
@@ -108,14 +106,24 @@ public class CadastroPessoaActivity extends Activity implements AdapterView.OnIt
         cadastroPessoa.setNumero(Integer.parseInt(txtNumero.getText().toString()));
         // Cidade
         cadastroPessoa.setCidade(txtCidade.getText().toString());
-        // Inclui um novo cadastro no banco
-        //cpdb.adicionarCadastroPessoa(cadastroPessoa);
-        // Chama a tela de cadastro de cachorro
-        //Intent intent = new Intent(this, MenuUsuarioPetActivity.class);
-        //startActivity(intent);
-        // TODO-Vinícius: 10/05/2020: Precisa testar se todas as informações foram inseridas antes
-        // ...de chamar a inclusão no banco e a outra tela
-        System.out.println(oEmailEValido(txtEmailCadastro.getText().toString()));
+        // Se inseriu todos os dados corretamente (Não está funcionando)
+        if (cadastroPessoa.getNome() != null &&
+            cadastroPessoa.getEmail() != null &&
+            cadastroPessoa.getSexo() != null &&
+            cadastroPessoa.getDataNascimento() != null &&
+            cadastroPessoa.getSenha() != null &&
+            cadastroPessoa.getRua() != null &&
+            cadastroPessoa.getNumero() != 0 &&
+            cadastroPessoa.getCidade() != null){
+            // Inclui um novo cadastro no banco
+            cpdb.adicionarCadastroPessoa(cadastroPessoa);
+            // Chama a tela de cadastro de menu de usuário e pet
+            Intent intent = new Intent(this, MenuUsuarioPetActivity.class);
+            startActivity(intent);
+        }else{
+            exibeMensagem("Erro!", "Pada adicionar um novo cadastro, preencha todas as informações!");
+        }
+        //System.out.println(oEmailEValido(txtEmailCadastro.getText().toString()));
     }
     /*
      * Spinner - Quando um item é selecionado
@@ -140,20 +148,6 @@ public class CadastroPessoaActivity extends Activity implements AdapterView.OnIt
         builder.setTitle(title);
         builder.setMessage(message);
         builder.show();
-    }
-    /*
-     * Validação da senha (Não usar por hora)
-     */
-    private boolean isPasswordValid(String password) {
-        Pattern pattern;
-        Matcher matcher;
-
-        final String PASSWORD_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=\\S+$).{4,}$";
-
-        pattern = Pattern.compile(PASSWORD_PATTERN);
-        matcher = pattern.matcher(password);
-
-        return matcher.matches();
     }
     /*
      * Valida o e-mail

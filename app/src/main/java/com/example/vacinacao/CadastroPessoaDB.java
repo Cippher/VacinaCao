@@ -62,8 +62,6 @@ public class CadastroPessoaDB{
      * Adiciona uma nova pessoa no banco de dados
      */
     public void adicionarCadastroPessoa(CadastroPessoa cp){
-        //c.imprimePessoa(c);
-
         ContentValues values = new ContentValues();
         values.put(COL_NOME, cp.getNome());
         values.put(COL_EMAIL, cp.getEmail());
@@ -94,28 +92,40 @@ public class CadastroPessoaDB{
         values.put(COL_RUA, c.getRua());
         values.put(COL_NUMERO, Integer.toString(c.getNumero()));
         values.put(COL_CIDADE, c.getCidade());
-        //db.
+        System.out.println(c.getRua() + c.getNumero() + c.getCidade());
+        db.update(TAB_PESSOAS,values,null,null);
         fechar();
     }
     /*
      * Carrega pessoa cadastrada no banco de dados
      */
     public CadastroPessoa carregaCadastroPessoa(){
-        // Atribuição temporária
-        CadastroPessoa cp = null;
-        //db.
-        //cp.setRua(/*Carregado do banco de dados*/);
-        //cp.setNumero(/*Carregado do banco de dados*/);
-        //cp.setCidade(/*Carregado do banco de dados*/);
-        return cp;
+        CadastroPessoa pessoa = new CadastroPessoa();
+        // Colunas a buscar no banco
+        String[] colunas = {COL_RUA, COL_NUMERO, COL_CIDADE, COL_EMAIL, COL_SENHA};
+        Cursor cursor = db.query(TAB_PESSOAS, colunas, null, null, null, null, null);
+        // Se existe registro no banco
+        if (cursor != null){
+            cursor.moveToFirst();
+            pessoa = new CadastroPessoa();
+            pessoa.setRua(cursor.getString(cursor.getColumnIndex(COL_RUA)));
+            pessoa.setNumero(cursor.getInt(cursor.getColumnIndex(COL_NUMERO)));
+            pessoa.setCidade(cursor.getString(cursor.getColumnIndex(COL_CIDADE)));
+            pessoa.setEmail(cursor.getString(cursor.getColumnIndex(COL_EMAIL)));
+            pessoa.setSenha(cursor.getString(cursor.getColumnIndex(COL_SENHA)));
+        }
+        fechar();
+        return pessoa;
     }
     /*
      * Apaga um cadastro de pessoa do banco de dados
      */
     public Integer deletarCadastroPessoa(int id){
+        db = dbHelper.getReadableDatabase();
         return db.delete(TAB_PESSOAS, COL_ID + "=" + id, null);
     }
     public Integer deletarCadastroPessoa(){
+        db = dbHelper.getReadableDatabase();
         return db.delete(TAB_PESSOAS, null, null);
     }
 
