@@ -104,8 +104,9 @@ public class CadastroPessoaDB{
         // Colunas a buscar no banco
         String[] colunas = {COL_RUA, COL_NUMERO, COL_CIDADE, COL_EMAIL, COL_SENHA};
         Cursor cursor = db.query(TAB_PESSOAS, colunas, null, null, null, null, null);
+        System.out.println(cursor);
         // Se existe registro no banco
-        if (cursor != null){
+        if (cursor.getCount() != 0){
             cursor.moveToFirst();
             pessoa = new CadastroPessoa();
             pessoa.setRua(cursor.getString(cursor.getColumnIndex(COL_RUA)));
