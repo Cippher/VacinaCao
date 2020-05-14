@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                     txtSenhaLogin = limpaTextoEditText(txtSenhaLogin);
                 }
             }else{
-                exibeMensagem("Erro!", "E-mails não cadastrado! Tente novamente.");
+                exibeMensagem("Erro!", "E-mail não cadastrado! Tente novamente.");
                 txtEmailLogin = limpaTextoEditText(txtEmailLogin);
                 txtSenhaLogin = limpaTextoEditText(txtSenhaLogin);
             }

@@ -86,6 +86,7 @@ public class CadastroPessoaActivity extends Activity implements AdapterView.OnIt
         CadastroPessoa cadastroPessoa = new CadastroPessoa();
         // Nome da pessoa
         cadastroPessoa.setNome(txtNome.getText().toString());
+        // TODO: Vinícius: 11/05/2020: oEmailEValido - Precisa validar o e-mail antes de inserir no banco
         // E-mail da pessoa
         cadastroPessoa.setEmail(txtEmailCadastro.getText().toString());
         // Sexo da pessoa
@@ -106,7 +107,8 @@ public class CadastroPessoaActivity extends Activity implements AdapterView.OnIt
         cadastroPessoa.setNumero(Integer.parseInt(txtNumero.getText().toString()));
         // Cidade
         cadastroPessoa.setCidade(txtCidade.getText().toString());
-        // Se inseriu todos os dados corretamente (Precisa ajustar)
+        // TODO: Vinícius: 11/05/2020: (Precisa ajustar)
+        // Se inseriu todos os dados corretamente
         if (cadastroPessoa.getNome() != null &&
             cadastroPessoa.getEmail() != null &&
             cadastroPessoa.getSexo() != null &&
