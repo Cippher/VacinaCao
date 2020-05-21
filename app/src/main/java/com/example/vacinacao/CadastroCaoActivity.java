@@ -1,25 +1,39 @@
 package com.example.vacinacao;
-import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 
 public class CadastroCaoActivity  extends Activity implements AdapterView.OnItemSelectedListener{
 
+    /*
+     * Declaração das variáveis
+     */
+
     EditText txtNome;
     EditText txtRaca;
-    EditText txtDataNascimento;
+    EditText txtDataNascimentoCao;
     EditText txtPeso;
+    Spinner spnSexo;
 
+    private String dataNascimentoCao;
+    private String strSexoCao;
+    private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+    private Date dataNascCao;
     private static final String[] strSexo = new String[]{"M", "F"};
+
+
+
 
     CadastroCaoDB ccdb;
 
@@ -30,7 +44,7 @@ public class CadastroCaoActivity  extends Activity implements AdapterView.OnItem
 
         txtNome =           (EditText) findViewById(R.id.txtNome);
         txtRaca =           (EditText) findViewById(R.id.txtRaca);
-        txtDataNascimento = (EditText) findViewById(R.id.txtDataNascimento);
+        txtDataNascimentoCao = (EditText) findViewById(R.id.txtDataNascimentoCao);
         txtPeso =           (EditText) findViewById(R.id.txtPeso);
         /*
          * Spinner
@@ -44,28 +58,58 @@ public class CadastroCaoActivity  extends Activity implements AdapterView.OnItem
         ccdb = new CadastroCaoDB(getBaseContext());
     }
 
-    public void confirmar(View v){
+    public void confirmar(View v) {
         CadastroCao cc = new CadastroCao();
-
+        // Nome do Cao
         cc.setNome(txtNome.getText().toString());
+        // Raca do cao
         cc.setRaca(txtRaca.getText().toString());
-        cc.setDataNascimento();
+        // Peso do cao
         cc.setPeso(Integer.parseInt(txtPeso.getText().toString()));
-        cc.setSexo();
-
-        ccdb.adicionarCadastroCao(cc);
-
-        Intent intent = new Intent(this, MenuUsuarioPetActivity.class);
-        startActivity(intent);
+        // Sexo do cao
+        cc.setSexo(strSexoCao);
+        // Nascimento do cao
+        dataNascimentoCao = txtDataNascimentoCao.getText().toString();
+        try {
+            dataNascCao = dateFormat.parse(dataNascimentoCao);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        // Se inseriu todos os dados corretamente
+        if (cc.getNome() != null &&
+                cc.getDataNascimento() != null &&
+                cc.getSexo() != null &&
+                cc.getPeso() != 0 &&
+                cc.getRaca() != null) {
+            // Inclui um novo cadastro no banco
+            ccdb.adicionarCadastroCao(cc);
+            Intent intent = new Intent(this, MenuUsuarioPetActivity.class);
+            startActivity(intent);
+        } else {
+            exibeMensagem("Erro!", "Pada adicionar um novo cadastro, preencha todas as informações!");
+        }
     }
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
+        // Sexo do cao
+        strSexoCao = adapterView.getItemAtPosition(i).toString();
     }
+    /*
+     * Spinner - Quando um item não é selecionado
+     */
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
+    }
+    /*
+     * Exibe uma mensagem com título e texto
+     */
+    public void exibeMensagem(String title, String message) {
+        AlertDialog.Builder builder=new AlertDialog.Builder(this);
+        builder.setCancelable(true);
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.show();
     }
 }
