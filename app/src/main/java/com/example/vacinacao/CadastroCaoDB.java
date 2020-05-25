@@ -76,7 +76,7 @@ public class CadastroCaoDB {
             }
         }
         /*
-         * Altera o cadastro de pessoa
+         * Altera o cadastro de cao
          */
         public void alterarCadastroCao(CadastroCao cc){
             ContentValues values = new ContentValues();
@@ -86,7 +86,7 @@ public class CadastroCaoDB {
             fechar();
         }
         /*
-         * Carrega pessoa cadastrada no banco de dados
+         * Carrega cadastro cao
          */
         public CadastroCao carregaCadastroCao(){
             CadastroCao cao = new CadastroCao();
