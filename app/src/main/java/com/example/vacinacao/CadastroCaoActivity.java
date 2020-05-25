@@ -75,6 +75,8 @@ public class CadastroCaoActivity  extends Activity implements AdapterView.OnItem
         } catch (ParseException e) {
             e.printStackTrace();
         }
+        cc.setDataNascimento(dataNascCao);
+
         // Se inseriu todos os dados corretamente
         if (cc.getNome() != null &&
                 cc.getDataNascimento() != null &&

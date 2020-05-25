@@ -27,4 +27,15 @@ public class CadastroCao {
     public void setDataNascimento(Date dataNascimento) { this.dataNascimento = dataNascimento; }
     public void setPeso(float peso) { this.peso = peso; }
     public void setSexo(String sexo) { this.sexo = sexo; }
+
+    /*
+     * Imprime os dados da pessoa no terminal para teste
+     */
+    public void imprimeCao(CadastroCao c){
+        System.out.println("Nome: " + c.getNome() +
+                "Raça: " + c.getRaca() +
+                "Data de nascimento: " + c.getDataNascimento() +
+                "Sexo: " + c.getSexo() +
+                "Número: " + c.getPeso());
+    }
 }
