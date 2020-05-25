@@ -1,6 +1,7 @@
 package com.example.vacinacao;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -33,7 +34,21 @@ public class PerfilPetActivity extends Activity {
     public void confirmarAlteracaoCao(View v) {
         ccdb = new CadastroCaoDB(getBaseContext());
         CadastroCao cadastroCao = new CadastroCao();
+        cadastroCao.setNome(txtNome.getText().toString());
+        cadastroCao.setPeso(Integer.parseInt(txtPeso.getText().toString()));
+        ccdb.alterarCadastroCao(cadastroCao);
+        Intent intent = new Intent(this, MenuUsuarioPetActivity.class);
+        startActivity(intent);
+    }
+    /*
+     * Evento de clique de botão "excluirCadastro"
+     */
 
+    public void excluirCadastroCao(View v){
+
+        ccdb.deletarCadastroCao();
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
 }
