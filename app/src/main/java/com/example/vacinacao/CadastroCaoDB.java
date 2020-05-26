@@ -16,19 +16,19 @@ public class CadastroCaoDB {
         /*
          * Declaração das colunas
          */
-        private static final String COL_ID     = "ID";
-        private static final String COL_NOME   = "NOME";
-        private static final String COL_RACA  = "RACA";
-        private static final String COL_DATA   = "DATA";
-        private static final String COL_PESO   = "PESO";
-        private static final String COL_SEXO  = "SEXO";
+        private static final String COL_ID       = "ID";
+        private static final String COL_NOME     = "NOME";
+        private static final String COL_RACA     = "RACA";
+        private static final String COL_DATA     = "DATA";
+        private static final String COL_PESO     = "PESO";
+        private static final String COL_SEXO     = "SEXO";
         private static final String SQL_TAB_CAES = "create table " + TAB_CAES +
                 "(" + COL_ID     + " integer primary key autoincrement," +
-                COL_NOME + " text not null," +
-                COL_RACA + " text not null," +
-                COL_DATA + " text not null," +
-                COL_PESO + " text not null," +
-                COL_SEXO + " text not null)";
+                      COL_NOME + " text not null," +
+                      COL_RACA + " text not null," +
+                      COL_DATA + " text not null," +
+                      COL_PESO + " text not null," +
+                      COL_SEXO + " text not null)";
         private com.example.vacinacao.CadastroCaoDB.cadastroDBHelper dbHelper;
         private SQLiteDatabase db;
         private Context ctx;
@@ -53,7 +53,7 @@ public class CadastroCaoDB {
             db.close();
         }
         /*
-         * Adiciona uma nova pessoa no banco de dados
+         * Adiciona um novo cão no banco de dados
          */
         public void adicionarCadastroCao(CadastroCao cc){
             ContentValues values = new ContentValues();
@@ -86,7 +86,7 @@ public class CadastroCaoDB {
             fechar();
         }
         /*
-         * Carrega pessoa cadastrada no banco de dados
+         * Carrega cão cadastrado no banco de dados
          */
         public CadastroCao carregaCadastroCao(){
             CadastroCao cao = new CadastroCao();
@@ -104,7 +104,7 @@ public class CadastroCaoDB {
             return cao;
         }
         /*
-         * Apaga um cadastro de pessoa do banco de dados
+         * Apaga um cadastro de cão do banco de dados
          */
         public Integer deletarCadastroCao(int id){
             db = dbHelper.getReadableDatabase();
