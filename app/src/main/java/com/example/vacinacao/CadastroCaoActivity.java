@@ -46,6 +46,7 @@ public class CadastroCaoActivity  extends Activity implements AdapterView.OnItem
         txtRaca =           (EditText) findViewById(R.id.txtRaca);
         txtDataNascimentoCao = (EditText) findViewById(R.id.txtDataNascimentoCao);
         txtPeso =           (EditText) findViewById(R.id.txtPeso);
+        spnSexo =                      (Spinner) findViewById(R.id.spnSexo);
         /*
          * Spinner
          */
@@ -88,7 +89,7 @@ public class CadastroCaoActivity  extends Activity implements AdapterView.OnItem
             Intent intent = new Intent(this, MenuUsuarioPetActivity.class);
             startActivity(intent);
         } else {
-            exibeMensagem("Erro!", "Pada adicionar um novo cadastro, preencha todas as informações!");
+            exibeMensagem("Erro!", "Para adicionar um novo cadastro, preencha todas as informações!");
         }
     }
 

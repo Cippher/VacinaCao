@@ -18,13 +18,21 @@ public class PerfilPetActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_perfil_usuario);
+        setContentView(R.layout.activity_perfil_pet);
 
         ccdb = new CadastroCaoDB(getBaseContext());
         cc = ccdb.carregaCadastroCao();
 
         txtNome    = (EditText) findViewById(R.id.txtNome);
         txtPeso = (EditText) findViewById(R.id.txtPeso);
+
+        txtNome.setText(cc.getNome());
+        txtPeso.setText(Float.toString(cc.getPeso()));
+
+        txtNome    = (EditText) findViewById(R.id.txtNome);
+        txtPeso = (EditText) findViewById(R.id.txtPeso);
+
+
 
     }
 
@@ -35,7 +43,7 @@ public class PerfilPetActivity extends Activity {
         ccdb = new CadastroCaoDB(getBaseContext());
         CadastroCao cadastroCao = new CadastroCao();
         cadastroCao.setNome(txtNome.getText().toString());
-        cadastroCao.setPeso(Integer.parseInt(txtPeso.getText().toString()));
+        cadastroCao.setPeso(Float.parseFloat(txtPeso.getText().toString()));
         ccdb.alterarCadastroCao(cadastroCao);
         Intent intent = new Intent(this, MenuUsuarioPetActivity.class);
         startActivity(intent);
@@ -47,7 +55,7 @@ public class PerfilPetActivity extends Activity {
     public void excluirCadastroCao(View v){
 
         ccdb.deletarCadastroCao();
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MenuUsuarioPetActivity.class);
         startActivity(intent);
     }
 
