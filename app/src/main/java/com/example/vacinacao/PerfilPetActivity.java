@@ -33,7 +33,6 @@ public class PerfilPetActivity extends Activity {
         txtPeso = (EditText) findViewById(R.id.txtPeso);
 
 
-
     }
 
     /*
