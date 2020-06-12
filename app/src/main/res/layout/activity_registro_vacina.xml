@@ -1,6 +1,227 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:id="@+id/editText7"
+                android:layout_width="134dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="16dp"
+                android:ems="10"
+                android:inputType="date"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.095"
+                app:layout_constraintStart_toEndOf="@+id/textView28"
+                app:layout_constraintTop_toBottomOf="@+id/editText5" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="76dp"
+                android:layout_marginTop="40dp"
+                android:text="Lote:"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+            <EditText
+                android:id="@+id/editText4"
+                android:layout_width="261dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="24dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView20"
+                app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:text="Laboratorio:"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="205dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="36dp"
+                android:text="Vacinas de 6 à 8 semanas"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.077"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText3" />
+
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="179dp"
+                android:layout_height="46dp"
+                android:layout_marginTop="16dp"
+                android:text="Vaciana V8 V10"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.112"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+            <EditText
+                android:id="@+id/editText3"
+                android:layout_width="92dp"
+                android:layout_height="42dp"
+                android:layout_marginTop="24dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.06"
+                app:layout_constraintStart_toEndOf="@+id/textView27"
+                app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="286dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                app:layout_constraintTop_toBottomOf="@+id/divider4"
+                tools:layout_editor_absoluteX="84dp" />
+
+            <View
+                android:id="@+id/divider4"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:layout_marginTop="16dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Caderno de Vacinas"
+                android:textSize="30sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="34dp"
+                android:layout_height="26dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="32dp"
+                android:text="Pet:"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider4" />
+
+            <TextView
+                android:id="@+id/textView27"
+                android:layout_width="53dp"
+                android:layout_height="29dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="44dp"
+                android:text="Idade:"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="359dp"
+                android:layout_height="71dp"
+                android:layout_marginTop="16dp"
+                android:text="As vacinas v8 e v10 protegem os cães de sete doenças consideradas graves: cinomose, hepatite infecciosa canina, parvovirose, leptospirose, adenovirose coronavirose e parainfluenza canina."
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkBox" />
+
+            <EditText
+                android:id="@+id/editText5"
+                android:layout_width="116dp"
+                android:layout_height="47dp"
+                android:layout_marginTop="12dp"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="Name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.098"
+                app:layout_constraintStart_toEndOf="@+id/textView25"
+                app:layout_constraintTop_toBottomOf="@+id/editText4" />
+
+            <TextView
+                android:id="@+id/textView28"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="44dp"
+                android:layout_marginTop="32dp"
+                android:text="Validade:"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView25" />
+
+            <TextView
+                android:id="@+id/textView29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="40dp"
+                android:text="Dt. Aplicação:"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView28"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <EditText
+                android:id="@+id/editText10"
+                android:layout_width="134dp"
+                android:layout_height="47dp"
+                android:layout_marginTop="20dp"
+                android:ems="10"
+                android:inputType="date"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.07"
+                app:layout_constraintStart_toEndOf="@+id/textView29"
+                app:layout_constraintTop_toBottomOf="@+id/editText7" />
+
+            <Button
+                android:id="@+id/button12"
+                android:layout_width="224dp"
+                android:layout_height="44dp"
+                android:layout_marginTop="16dp"
+                android:text="Registrar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editText10" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
