@@ -110,7 +110,7 @@ public class CadastroCaoDB {
             return cao;
         }
         /*
-         * Apaga um cadastro de cão do banco de dados
+         * Apaga um cadastro de cão do banco de dadoss
          */
         public Integer deletarCadastroCao(int id){
             db = dbHelper.getReadableDatabase();

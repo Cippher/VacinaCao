@@ -26,7 +26,7 @@ public class MenuUsuarioPetActivity extends Activity {
         startActivity(intent);
     }
     /*
-     * Go to atualiza cadastro cao
+     * Go to atualiza cadastro caos
      */
     public void atualizarCadastro(View v){
         Intent intent = new Intent(this, PerfilPetActivity.class);
