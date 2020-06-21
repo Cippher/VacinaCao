@@ -76,22 +76,27 @@ public class CadastroCaoDB {
             }
         }
         /*
-         * Altera o cadastro de pessoa
+         * Altera o cadastro de cao
          */
         public void alterarCadastroCao(CadastroCao cc){
             ContentValues values = new ContentValues();
             values.put(COL_PESO, cc.getPeso());
+            values.put(COL_NOME, cc.getNome());
             System.out.println(cc.getPeso());
             db.update(TAB_CAES,values,null,null);
             fechar();
         }
         /*
+<<<<<<< HEAD
          * Carrega cão cadastrado no banco de dados
+=======
+         * Carrega cadastro cao
+>>>>>>> 442ef6f63fe0d72c868540f56740ec39e9fe6821
          */
         public CadastroCao carregaCadastroCao(){
             CadastroCao cao = new CadastroCao();
             // Colunas a buscar no banco
-            String[] colunas = {COL_PESO};
+            String[] colunas = {COL_PESO, COL_NOME};
             Cursor cursor = db.query(TAB_CAES, colunas, null, null, null, null, null);
             System.out.println(cursor);
             // Se existe registro no banco
@@ -99,6 +104,7 @@ public class CadastroCaoDB {
                 cursor.moveToFirst();
                 cao = new CadastroCao();
                 cao.setPeso(cursor.getFloat(cursor.getColumnIndex(COL_PESO)));
+                cao.setNome(cursor.getString(cursor.getColumnIndex(COL_NOME)));
             }
             fechar();
             return cao;
