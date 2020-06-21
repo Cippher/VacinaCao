@@ -57,7 +57,6 @@ public class PerfilUsuarioActivity extends Activity {
      * Evento de clique de botão "excluirCadastro"
      */
     public void excluirCadastro(View v){
-
         cpdb.deletarCadastroPessoa();
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);

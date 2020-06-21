@@ -107,7 +107,7 @@ public class CadastroPessoaActivity extends Activity implements AdapterView.OnIt
         cadastroPessoa.setNumero(Integer.parseInt(txtNumero.getText().toString()));
         // Cidade
         cadastroPessoa.setCidade(txtCidade.getText().toString());
-        // Se inseriu todos os dados corretamente
+        // Se inseriu todos os dados corretamente (Ajustar, não funciona os testes)
         if (cadastroPessoa.getNome() != null &&
             cadastroPessoa.getEmail() != null &&
             cadastroPessoa.getSexo() != null &&

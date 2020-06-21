@@ -15,11 +15,9 @@ import java.util.Date;
 
 
 public class CadastroCaoActivity  extends Activity implements AdapterView.OnItemSelectedListener{
-
     /*
      * Declaração das variáveis
      */
-
     EditText txtNome;
     EditText txtRaca;
     EditText txtDataNascimentoCao;
@@ -32,9 +30,6 @@ public class CadastroCaoActivity  extends Activity implements AdapterView.OnItem
     private Date dataNascCao;
     private static final String[] strSexo = new String[]{"M", "F"};
 
-
-
-
     CadastroCaoDB ccdb;
 
     @Override
@@ -42,9 +37,10 @@ public class CadastroCaoActivity  extends Activity implements AdapterView.OnItem
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_pet);
 
-        txtNome =           (EditText) findViewById(R.id.txtNome);
-        txtRaca =           (EditText) findViewById(R.id.txtRaca);
+        txtNome =              (EditText) findViewById(R.id.txtNome);
+        txtRaca =              (EditText) findViewById(R.id.txtRaca);
         txtDataNascimentoCao = (EditText) findViewById(R.id.txtDataNascimentoCao);
+        txtPeso =              (EditText) findViewById(R.id.txtPeso);
         txtPeso =           (EditText) findViewById(R.id.txtPeso);
         spnSexo =                      (Spinner) findViewById(R.id.spnSexo);
         /*
@@ -69,7 +65,7 @@ public class CadastroCaoActivity  extends Activity implements AdapterView.OnItem
         cc.setPeso(Integer.parseInt(txtPeso.getText().toString()));
         // Sexo do cao
         cc.setSexo(strSexoCao);
-        // Nascimento do cao
+        // Data de nascimento do cao
         dataNascimentoCao = txtDataNascimentoCao.getText().toString();
         try {
             dataNascCao = dateFormat.parse(dataNascimentoCao);
@@ -80,10 +76,10 @@ public class CadastroCaoActivity  extends Activity implements AdapterView.OnItem
 
         // Se inseriu todos os dados corretamente
         if (cc.getNome() != null &&
-                cc.getDataNascimento() != null &&
-                cc.getSexo() != null &&
-                cc.getPeso() != 0 &&
-                cc.getRaca() != null) {
+            cc.getDataNascimento() != null &&
+            cc.getSexo() != null &&
+            cc.getPeso() != 0 &&
+            cc.getRaca() != null) {
             // Inclui um novo cadastro no banco
             ccdb.adicionarCadastroCao(cc);
             Intent intent = new Intent(this, MenuUsuarioPetActivity.class);
@@ -92,7 +88,9 @@ public class CadastroCaoActivity  extends Activity implements AdapterView.OnItem
             exibeMensagem("Erro!", "Para adicionar um novo cadastro, preencha todas as informações!");
         }
     }
-
+    /*
+     * Spinner - Quando um item é selecionado
+     */
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         // Sexo do cao
@@ -101,7 +99,6 @@ public class CadastroCaoActivity  extends Activity implements AdapterView.OnItem
     /*
      * Spinner - Quando um item não é selecionado
      */
-
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
     }
