@@ -60,6 +60,7 @@ public class VacinaDB {
      * Adiciona um novo cão no banco de dados
      */
     public void adicionarVacina(Vacina cc){
+        deletarVacina();
         ContentValues values = new ContentValues();
         values.put(COL_LABORATORIO, cc.getLaboratorio());
         values.put(COL_LOTE, cc.getLote());

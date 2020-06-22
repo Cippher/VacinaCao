@@ -21,9 +21,9 @@ public class RegistroVacinaActivity extends Activity {
     EditText dtDataAplicacao;
     EditText txtNome;
 
-    private String data;
+    private String data, data1;
     private SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-    private Date dataV;
+    private Date dataV, dataV1;
 
     VacinaDB ccdb;
     CadastroCaoDB cpdb;
@@ -62,7 +62,7 @@ public class RegistroVacinaActivity extends Activity {
         txtLote =              (EditText) findViewById(R.id.txtLote);
         txtValidade =          (EditText) findViewById(R.id.txtValidade);
         dtDataAplicacao =      (EditText) findViewById(R.id.dtDataAplicacao);
-        txtNome =              (EditText) findViewById(R.id.txtNome);
+        //txtNome =              (EditText) findViewById(R.id.txtNome);
 
         //txtIdade.setText(Integer.toString(cp.getIdade()));
     }
@@ -83,13 +83,13 @@ public class RegistroVacinaActivity extends Activity {
         }
         cc.setDataAplicacao(dataV);
 
-        data = txtValidade.getText().toString();
+        data1 = txtValidade.getText().toString();
         try {
-            dataV = dateFormat.parse(data);
+            dataV1 = dateFormat.parse(data1);
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        cc.setValidade(dataV);
+        cc.setValidade(dataV1);
 
         // Inclui um novo cadastro no banco
         ccdb.adicionarVacina(cc);
