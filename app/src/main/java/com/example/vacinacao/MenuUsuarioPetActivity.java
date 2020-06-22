@@ -32,4 +32,11 @@ public class MenuUsuarioPetActivity extends Activity {
         Intent intent = new Intent(this, PerfilPetActivity.class);
         startActivity(intent);
     }
+    /*
+     * Go to Vacina
+     */
+    public void vacina(View v){
+        Intent intent = new Intent(this, RegistroVacinaActivity.class);
+        startActivity(intent);
+    }
 }

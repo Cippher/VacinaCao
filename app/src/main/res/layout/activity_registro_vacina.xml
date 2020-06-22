@@ -17,7 +17,7 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/editText7"
+                android:id="@+id/txtValidade"
                 android:layout_width="134dp"
                 android:layout_height="42dp"
                 android:layout_marginTop="16dp"
@@ -26,7 +26,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.095"
                 app:layout_constraintStart_toEndOf="@+id/textView28"
-                app:layout_constraintTop_toBottomOf="@+id/editText5" />
+                app:layout_constraintTop_toBottomOf="@+id/txtLote" />
 
             <TextView
                 android:id="@+id/textView25"
@@ -40,13 +40,12 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView20" />
 
             <EditText
-                android:id="@+id/editText4"
+                android:id="@+id/txtLaboratorio"
                 android:layout_width="261dp"
                 android:layout_height="44dp"
                 android:layout_marginTop="24dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView20"
                 app:layout_constraintTop_toBottomOf="@+id/textView19" />
@@ -96,18 +95,18 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.06"
                 app:layout_constraintStart_toEndOf="@+id/textView27"
-                app:layout_constraintTop_toBottomOf="@+id/editText" />
+                app:layout_constraintTop_toBottomOf="@+id/txtNome" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/txtNome"
                 android:layout_width="286dp"
                 android:layout_height="45dp"
                 android:layout_marginTop="20dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name"
-                app:layout_constraintTop_toBottomOf="@+id/divider4"
-                tools:layout_editor_absoluteX="84dp" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/textView12"
+                app:layout_constraintTop_toBottomOf="@+id/divider4" />
 
             <View
                 android:id="@+id/divider4"
@@ -162,17 +161,16 @@
                 app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
             <EditText
-                android:id="@+id/editText5"
+                android:id="@+id/txtLote"
                 android:layout_width="116dp"
                 android:layout_height="47dp"
                 android:layout_marginTop="12dp"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.098"
                 app:layout_constraintStart_toEndOf="@+id/textView25"
-                app:layout_constraintTop_toBottomOf="@+id/editText4" />
+                app:layout_constraintTop_toBottomOf="@+id/txtLaboratorio" />
 
             <TextView
                 android:id="@+id/textView28"
@@ -199,7 +197,7 @@
                 app:layout_constraintVertical_bias="0.0" />
 
             <EditText
-                android:id="@+id/editText10"
+                android:id="@+id/dtDataAplicacao"
                 android:layout_width="134dp"
                 android:layout_height="47dp"
                 android:layout_marginTop="20dp"
@@ -208,18 +206,19 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.07"
                 app:layout_constraintStart_toEndOf="@+id/textView29"
-                app:layout_constraintTop_toBottomOf="@+id/editText7" />
+                app:layout_constraintTop_toBottomOf="@+id/txtValidade" />
 
             <Button
                 android:id="@+id/button12"
                 android:layout_width="224dp"
                 android:layout_height="44dp"
                 android:layout_marginTop="16dp"
+                android:onClick="registrar"
                 android:text="Registrar"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editText10" />
+                app:layout_constraintTop_toBottomOf="@+id/dtDataAplicacao" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

@@ -21,6 +21,7 @@
         <activity android:name=".MenuUsuarioPetActivity" />
         <activity android:name=".PerfilUsuarioActivity" />
         <activity android:name=".PerfilPetActivity" />
+        <activity android:name=".RegistroVacinaActivity" />
     </application>
 
 </manifest>

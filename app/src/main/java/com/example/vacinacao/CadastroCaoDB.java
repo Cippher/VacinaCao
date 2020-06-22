@@ -87,11 +87,7 @@ public class CadastroCaoDB {
             fechar();
         }
         /*
-<<<<<<< HEAD
          * Carrega cão cadastrado no banco de dados
-=======
-         * Carrega cadastro cao
->>>>>>> 442ef6f63fe0d72c868540f56740ec39e9fe6821
          */
         public CadastroCao carregaCadastroCao(){
             CadastroCao cao = new CadastroCao();
